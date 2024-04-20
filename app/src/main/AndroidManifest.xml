@@ -13,9 +13,17 @@
         android:theme="@style/Theme.App"
         tools:targetApi="31">
         <activity
-            android:name=".DonutGUI"
+            android:name=".AllOrdersGUI"
             android:exported="false"
             android:theme="@style/Theme.AppCompat"/>
+        <activity
+            android:name=".CurrentOrderGUI"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat"/>
+        <activity
+            android:name=".DonutGUI"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".SandwichGUI"
             android:exported="false"
