@@ -28,11 +28,12 @@ public class main extends AppCompatActivity {
         coffeeImage.setImageResource(R.drawable.coffee_main);
         sandwichImage = findViewById(R.id.sandwichImage);
         sandwichImage.setImageResource(R.drawable.sandwich_main);
-        //donutImage = findViewById(R.id.donutImage);
-        //donutImage.setImageResource(R.drawable.donut_main);
+        donutImage = findViewById(R.id.donutImage);
+        donutImage.setImageResource(R.drawable.donut_main);
 
         coffeeImage.setOnClickListener(v -> openingCoffeeGUI());
         sandwichImage.setOnClickListener(v -> openingSandwichGUI());
+        donutImage.setOnClickListener(v -> openingDonutGUI());
     }
     public void openingCoffeeGUI(){
         Intent intent = new Intent(this, CoffeeGUI.class);
@@ -41,6 +42,11 @@ public class main extends AppCompatActivity {
     }
     public void openingSandwichGUI(){
         Intent intent = new Intent(this, SandwichGUI.class);
+//        myIntent.putExtra("key", value); //Optional parameters for transferring data between GUIs
+        main.this.startActivity(intent);
+    }
+    public void openingDonutGUI(){
+        Intent intent = new Intent(this, DonutGUI.class);
 //        myIntent.putExtra("key", value); //Optional parameters for transferring data between GUIs
         main.this.startActivity(intent);
     }
