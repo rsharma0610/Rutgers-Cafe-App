@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SandwichGUI">
+
+    <ImageView
+        android:id="@+id/sandwichBanner"
+        android:layout_width="303dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/breadGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <RadioGroup
+        android:id="@+id/breadGroup"
+        android:layout_width="348dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/proteinGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sandwichBanner">
+
+        <RadioButton
+            android:id="@+id/bagel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bagel" />
+
+        <RadioButton
+            android:id="@+id/wheat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wheat" />
+
+        <RadioButton
+            android:id="@+id/sourdough"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sour Dough" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/proteinGroup"
+        android:layout_width="344dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/lettuce"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breadGroup">
+
+        <RadioButton
+            android:id="@+id/beef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beef" />
+
+        <RadioButton
+            android:id="@+id/fish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fish" />
+
+        <RadioButton
+            android:id="@+id/chicken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chicken" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/lettuce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="166dp"
+        android:text="Lettuce"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tomatoes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proteinGroup" />
+
+    <CheckBox
+        android:id="@+id/tomatoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="14dp"
+        android:text="Tomatoes"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+        app:layout_constraintEnd_toStartOf="@+id/cheese"
+        app:layout_constraintStart_toEndOf="@+id/lettuce"
+        app:layout_constraintTop_toBottomOf="@+id/proteinGroup" />
+
+    <CheckBox
+        android:id="@+id/cheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="14dp"
+        android:text="Cheese"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+        app:layout_constraintEnd_toStartOf="@+id/onion"
+        app:layout_constraintStart_toEndOf="@+id/tomatoes"
+        app:layout_constraintTop_toBottomOf="@+id/proteinGroup" />
+
+    <CheckBox
+        android:id="@+id/onion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="14dp"
+        android:text="Onion"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cheese"
+        app:layout_constraintTop_toBottomOf="@+id/proteinGroup" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="27dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="subtotal"
+        app:layout_constraintBottom_toTopOf="@+id/sandwichSubtotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lettuce"
+        app:layout_constraintTop_toBottomOf="@+id/tomatoes" />
+
+    <TextView
+        android:id="@+id/sandwichSubtotal"
+        android:layout_width="197dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="183dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="47dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+
+    <Button
+        android:id="@+id/addToOrderSandwich"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="25dp"
+        android:text="Add to Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sandwichSubtotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lettuce" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

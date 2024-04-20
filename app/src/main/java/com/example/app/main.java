@@ -32,9 +32,15 @@ public class main extends AppCompatActivity {
         //donutImage.setImageResource(R.drawable.donut_main);
 
         coffeeImage.setOnClickListener(v -> openingCoffeeGUI());
+        sandwichImage.setOnClickListener(v -> openingSandwichGUI());
     }
     public void openingCoffeeGUI(){
         Intent intent = new Intent(this, CoffeeGUI.class);
+//        myIntent.putExtra("key", value); //Optional parameters for transferring data between GUIs
+        main.this.startActivity(intent);
+    }
+    public void openingSandwichGUI(){
+        Intent intent = new Intent(this, SandwichGUI.class);
 //        myIntent.putExtra("key", value); //Optional parameters for transferring data between GUIs
         main.this.startActivity(intent);
     }
