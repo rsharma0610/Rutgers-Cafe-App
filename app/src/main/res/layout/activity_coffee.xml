@@ -158,4 +158,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coffeeQuantity" />
 
+    <Button
+        android:id="@+id/addToOrderCoffee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="40dp"
+        android:text="Add to Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/coffeeSubtotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/irishCream" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

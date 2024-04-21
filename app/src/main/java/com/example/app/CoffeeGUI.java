@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +26,7 @@ public class CoffeeGUI extends AppCompatActivity {
     private Spinner quantity;
     private CheckBox sweetCream, mocha, frenchVanilla, caramel, irishCream;
     private ImageView coffeeBanner;
-
+    private Button order;
     private TextView coffeeSubtotal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class CoffeeGUI extends AppCompatActivity {
             return insets;
         });
         //Connect all variables to their ids in the xml file
+        order = findViewById(R.id.addToOrderCoffee);
+
         coffeeBanner = findViewById(R.id.coffeeBanner);
 
         size = findViewById(R.id.coffeeSize);
@@ -90,6 +94,13 @@ public class CoffeeGUI extends AppCompatActivity {
         frenchVanilla.setOnCheckedChangeListener((buttonView, isChecked) -> updateTextArea());
         caramel.setOnCheckedChangeListener((buttonView, isChecked) -> updateTextArea());
         irishCream.setOnCheckedChangeListener((buttonView, isChecked) -> updateTextArea());
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleAddToOrder();
+            }
+        });
     }
 
     private CoffeeSize getCupSize(String cupSize){
@@ -140,6 +151,16 @@ public class CoffeeGUI extends AppCompatActivity {
         double cost = coffee.price();
         cost = Math.round(cost * 100.0) / 100.0;
         coffeeSubtotal.setText("$" + Double.toString(cost));
+    }
+
+    private void handleAddToOrder(){
+        MenuItem coffee = coffeeMaker();
+        CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
+        currentOrderSingleton.getCurrentOrder().getItems().add(coffee);
+        orderPlacedAlert();
+    }
+    private void orderPlacedAlert(){
+        Toast.makeText(this, "Coffee added to order.", Toast.LENGTH_SHORT).show();
     }
 
 }

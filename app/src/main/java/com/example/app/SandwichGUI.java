@@ -163,7 +163,9 @@ public class SandwichGUI extends AppCompatActivity {
             return;
         }
         MenuItem sandwich = sandwichMaker();
-        //Implement later with Singelton design
+        CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
+        currentOrderSingleton.getCurrentOrder().getItems().add(sandwich);
+        orderPlacedAlert();
     }
     private void noBreadSelectedAlert() {
         Toast.makeText(this, "Please select a type of bread.", Toast.LENGTH_SHORT).show();
@@ -171,5 +173,8 @@ public class SandwichGUI extends AppCompatActivity {
 
     private void noProteinSelectedAlert() {
         Toast.makeText(this, "Please select a protein.", Toast.LENGTH_SHORT).show();
+    }
+    private void orderPlacedAlert(){
+        Toast.makeText(this, "Sandwich added to order.", Toast.LENGTH_SHORT).show();
     }
 }

@@ -22,4 +22,128 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/currentOrderDisplay"
+        android:layout_width="300dp"
+        android:layout_height="486dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="159dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+
+    <Button
+        android:id="@+id/removeCurrentOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="56dp"
+        android:text="Remove Item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/placeCurrentOrder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentOrderDisplay" />
+
+    <Button
+        android:id="@+id/placeCurrentOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="54dp"
+        android:text="Place Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/removeCurrentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/currentOrderDisplay"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/currSubtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="596dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="31dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toTopOf="@+id/currSalexTax"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextText6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currSalexTax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toTopOf="@+id/currTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextText7"
+        app:layout_constraintTop_toBottomOf="@+id/currSubtotal" />
+
+    <TextView
+        android:id="@+id/currTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="36dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextText8"
+        app:layout_constraintTop_toBottomOf="@+id/currSalexTax" />
+
+    <EditText
+        android:id="@+id/editTextText6"
+        android:layout_width="77dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Subtotal"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText7"
+        app:layout_constraintEnd_toStartOf="@+id/currSubtotal"
+        app:layout_constraintStart_toEndOf="@+id/removeCurrentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/currentOrderDisplay" />
+
+    <EditText
+        android:id="@+id/editTextText7"
+        android:layout_width="85dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="2dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Salex tax"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText8"
+        app:layout_constraintEnd_toStartOf="@+id/currSalexTax"
+        app:layout_constraintStart_toEndOf="@+id/placeCurrentOrder"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+
+    <EditText
+        android:id="@+id/editTextText8"
+        android:layout_width="81dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="261dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Total"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/currTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
