@@ -7,21 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".CoffeeGUI">
 
-    <ImageView
-        android:id="@+id/coffeeBanner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="497dp"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -29,9 +14,7 @@
         android:layout_marginStart="170dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="199dp"
-        android:layout_marginBottom="40dp"
         android:text="Coffee"
-        app:layout_constraintBottom_toTopOf="@+id/coffeeBanner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,13 +24,13 @@
         android:layout_width="169dp"
         android:layout_height="35dp"
         android:layout_marginStart="226dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/coffeeQuantity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coffeeBanner" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/coffeeQuantity"
@@ -171,5 +154,19 @@
         app:layout_constraintEnd_toStartOf="@+id/coffeeSubtotal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/irishCream" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="198dp"
+        android:layout_height="179dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/sweetCream"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/coffee" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

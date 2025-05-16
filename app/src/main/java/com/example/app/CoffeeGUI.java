@@ -21,13 +21,24 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for the coffee view
+ */
 public class CoffeeGUI extends AppCompatActivity {
     private Spinner size;
     private Spinner quantity;
     private CheckBox sweetCream, mocha, frenchVanilla, caramel, irishCream;
-    private ImageView coffeeBanner;
+    //private ImageView coffeeBanner;
     private Button order;
     private TextView coffeeSubtotal;
+
+    /**
+     * This method is called when the coffee view is first created
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +52,7 @@ public class CoffeeGUI extends AppCompatActivity {
         //Connect all variables to their ids in the xml file
         order = findViewById(R.id.addToOrderCoffee);
 
-        coffeeBanner = findViewById(R.id.coffeeBanner);
+
 
         size = findViewById(R.id.coffeeSize);
         quantity = findViewById(R.id.coffeeQuantity);
@@ -54,7 +65,7 @@ public class CoffeeGUI extends AppCompatActivity {
 
         coffeeSubtotal = findViewById(R.id.coffeeSubtotal);
         //Populate image and spinner views
-        coffeeBanner.setImageResource(R.drawable.coffee);
+
 
         String[] sizeOptions = {"Short", "Tall", "Grande", "Venti"};
         ArrayAdapter<String> sizeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sizeOptions);
@@ -103,6 +114,11 @@ public class CoffeeGUI extends AppCompatActivity {
         });
     }
 
+    /**
+     * Retrieves the selected cup size
+     * @param cupSize
+     * @return
+     */
     private CoffeeSize getCupSize(String cupSize){
         switch (cupSize) {
             case "Short":
@@ -117,6 +133,10 @@ public class CoffeeGUI extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Retrieves the selected add-ins
+     * @return
+     */
     private List<CoffeeAddIns> getAddIns(){
         List<CoffeeAddIns> addOns= new ArrayList<>();
         if(sweetCream.isChecked()){
@@ -137,6 +157,10 @@ public class CoffeeGUI extends AppCompatActivity {
         return  addOns;
     }
 
+    /**
+     * Makes the coffee menu item object
+     * @return
+     */
     private Coffee coffeeMaker(){
         String selectedQuantity = quantity.getSelectedItem().toString();
         int coffeeCount = Integer.parseInt(selectedQuantity);
@@ -145,6 +169,9 @@ public class CoffeeGUI extends AppCompatActivity {
         return new Coffee(coffeeCount, cupSize, addIns);
     }
 
+    /**
+     * UPdates the price fields based on the coffee order specs
+     */
     @SuppressLint("SetTextI18n")
     private void updateTextArea() {
         MenuItem coffee = coffeeMaker();
@@ -153,12 +180,19 @@ public class CoffeeGUI extends AppCompatActivity {
         coffeeSubtotal.setText("$" + Double.toString(cost));
     }
 
+    /**
+     * Adds the coffee object to the order array list
+     */
     private void handleAddToOrder(){
         MenuItem coffee = coffeeMaker();
         CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
         currentOrderSingleton.getCurrentOrder().getItems().add(coffee);
         orderPlacedAlert();
     }
+
+    /**
+     * Alert to signal that the coffee was added to the order
+     */
     private void orderPlacedAlert(){
         Toast.makeText(this, "Coffee added to order.", Toast.LENGTH_SHORT).show();
     }

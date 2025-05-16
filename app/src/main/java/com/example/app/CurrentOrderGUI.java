@@ -18,12 +18,24 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.text.DecimalFormat;
+
+/**
+ * The current order class controls the current order screen
+ */
 public class CurrentOrderGUI extends AppCompatActivity {
     private ListView display;
     private Button remove, order;
     private TextView subtotal, tax, total;
 
     int selectedIndex = -1;
+
+    /**
+     * This method is run when the view is created
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +75,9 @@ public class CurrentOrderGUI extends AppCompatActivity {
         populateOrderView();
     }
 
+    /**
+     * Populates the list view with the items in the order
+     */
     private void populateOrderView(){
         ArrayList<String> orderList = new ArrayList<>();
         CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
@@ -75,6 +90,10 @@ public class CurrentOrderGUI extends AppCompatActivity {
         display.setAdapter(arrayAdapter);
         populatePriceFields();
     }
+
+    /**
+     * Removes the selected item from the order
+     */
     private void removeItem(){
         CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
         if(currentOrderSingleton.getCurrentOrder().getItems().isEmpty()){
@@ -85,9 +104,16 @@ public class CurrentOrderGUI extends AppCompatActivity {
         populateOrderView();
     }
 
+    /**
+     * Alert to signal that the order is empty
+     */
     private void emptyOrderAlert(){
         Toast.makeText(this, "There are no items to remove.", Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * Fills the price text fields based on the items in the order
+     */
     @SuppressLint("SetTextI18n")
     private void populatePriceFields(){
         CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
@@ -101,14 +127,27 @@ public class CurrentOrderGUI extends AppCompatActivity {
         total.setText("$" + formattedTotalCost);
     }
 
+    /**
+     * Places the order adding it to the global orders array list
+     */
     private void placeOrder(){
         CurrentOrderSingleton currentOrderSingleton = CurrentOrderSingleton.getInstance();
 
         AllOrdersSingleton allOrdersSingleton = com.example.app.AllOrdersSingleton.getInstance();
+        if(currentOrderSingleton.getCurrentOrder().getItems().isEmpty()){
+            emptyOrderAlertTwo();
+            return;
+        }
         allOrdersSingleton.getOrderList().add(currentOrderSingleton.getCurrentOrder());
 
         currentOrderSingleton.resetCurrentOrder();
         populateOrderView();
     }
 
+    /**
+     * Signals that there are no items in the order
+     */
+    private void emptyOrderAlertTwo(){
+        Toast.makeText(this, "There are no items in the order.", Toast.LENGTH_SHORT).show();
+    }
 }

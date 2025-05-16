@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">App</string>
+    <string-array name="flavors">
+        <item>Chocolate</item>
+        <item>Vanilla</item>
+        <item>Strawberry</item>
+        <item>Glazed</item>
+        <item>Chocolate</item>
+        <item>Vanilla</item>
+        <item>Strawberry</item>
+        <item>Glazed</item>
+        <item>Chocolate</item>
+        <item>Vanilla</item>
+        <item>Strawberry</item>
+        <item>Glazed</item>
+    </string-array>
+    <string-array name="types">
+        <item>Cake</item>
+        <item>Cake</item>
+        <item>Cake</item>
+        <item>Cake</item>
+        <item>Yeast</item>
+        <item>Yeast</item>
+        <item>Yeast</item>
+        <item>Yeast</item>
+        <item>Donut Holes</item>
+        <item>Donut Holes</item>
+        <item>Donut Holes</item>
+        <item>Donut Holes</item>
+    </string-array>
+    <string-array name="prices">
+        <item>1.89</item>
+        <item>1.89</item>
+        <item>1.89</item>
+        <item>1.89</item>
+        <item>1.79</item>
+        <item>1.79</item>
+        <item>1.79</item>
+        <item>1.79</item>
+        <item>0.39</item>
+        <item>0.39</item>
+        <item>0.39</item>
+        <item>0.39</item>
+    </string-array>
 </resources>
